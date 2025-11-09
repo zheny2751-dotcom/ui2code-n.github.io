@@ -1,0 +1,565 @@
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Amazon Homepage</title>
+    <script src='https://cdn.jsdelivr.net/npm/react@18.0.0/umd/react.development.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/react-dom@18.0.0/umd/react-dom.development.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@babel/standalone/babel.js'></script>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Arial:wght@400;500;600&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'></link>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+    </style>
+</head>
+<body>
+    <div id='root'></div>
+
+    <script type='text/babel'>
+        const App = () => {
+            return (
+                <div className='flex flex-col min-h-screen'>
+                    {/* Header */}
+                    <header className='bg-gray-900 text-white py-2 px-4'>
+                        <div className='container mx-auto flex justify-between items-center'>
+                            <div className='flex items-center space-x-4'>
+                                <a href='#' className='flex items-center'>
+                                    <span className='text-3xl font-bold text-orange-500'>amazon</span>
+                                    <span className='text-xl text-orange-500 ml-1'>-</span>
+                                </a>
+                                <div className='flex items-center bg-gray-800 rounded-full px-3 py-1'>
+                                    <i className='fas fa-map-marker-alt mr-2 text-yellow-400'></i>
+                                    <span className='text-sm'>Deliver to</span>
+                                    <span className='ml-2 font-semibold'>Hong Kong</span>
+                                </div>
+                            </div>
+                            
+                            <div className='flex items-center space-x-4'>
+                                <div className='flex'>
+                                    <div className='relative inline-block'>
+                                        <button className='bg-gray-200 text-gray-700 px-3 py-2 rounded-l-md'>
+                                            All <i className='fas fa-caret-down ml-1'></i>
+                                        </button>
+                                        <div className='absolute hidden group-hover:inline-block z-10'>
+                                            <div className='bg-white border border-gray-300 rounded shadow-lg p-2'>
+                                                <a href='#' className='block px-4 py-2 hover:bg-gray-100'>All</a>
+                                                <a href='#' className='block px-4 py-2 hover:bg-gray-100'>Books</a>
+                                                <a href='#' className='block px-4 py-2 hover:bg-gray-100'>Electronics</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='inline-block'>
+                                        <input type='text' placeholder='Search Amazon' className='px-4 py-2 rounded-r-md w-64 border-0 outline-none' />
+                                    </div>
+                                    <button className='bg-orange-400 text-white px-4 py-2 rounded-md ml-1'>
+                                        <i className='fas fa-search'></i>
+                                    </button>
+                                </div>
+                                
+                                <div className='flex items-center space-x-4'>
+                                    <div className='flex items-center'>
+                                        <i className='fas fa-globe mr-1'></i>
+                                        <span>EN</span>
+                                        <i className='fas fa-caret-down ml-1'></i>
+                                    </div>
+                                    <div>
+                                        <a href='#' className='hover:text-yellow-400'>Hello, sign in</a>
+                                        <a href='#' className='text-yellow-400 ml-1'>Account & Lists</a>
+                                        <i className='fas fa-caret-down ml-1'></i>
+                                    </div>
+                                    <div>
+                                        <a href='#' className='hover:text-yellow-400'>Returns & Orders</a>
+                                    </div>
+                                    <a href='#' className='text-xl'>
+                                        <i className='fas fa-shopping-cart text-2xl'></i>
+                                        <span className='bg-orange-400 text-white rounded-full px-1.5 py-0.5 ml-1'>0</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Navigation Bar */}
+                    <nav className='bg-gray-800 text-white'>
+                        <div className='container mx-auto flex justify-between items-center'>
+                            <ul className='flex space-x-6 px-4'>
+                                <li><a href='#' className='py-3 hover:text-yellow-400'>Today's Deals</a></li>
+                                <li><a href='#' className='py-3 hover:text-yellow-400'>Amazon Haul</a></li>
+                                <li><a href='#' className='py-3 hover:text-yellow-400'>Early Prime Deals</a></li>
+                                <li className='relative'>
+                                    <a href='#' className='py-3 hover:text-yellow-400'>Medical Care</a>
+                                    <i className='fas fa-caret-down ml-1'></i>
+                                </li>
+                                <li><a href='#' className='py-3 hover:text-yellow-400'>Luxury Stores</a></li>
+                                <li><a href='#' className='py-3 hover:text-yellow-400'>Best Sellers</a></li>
+                            </ul>
+                            <div className='flex items-center space-x-4 px-4'>
+                                <div className='flex items-center space-x-2'>
+                                    <img src='https://picsum.photos/id/237/50/30' alt='Team 1' className='rounded-full' />
+                                    <span>VS</span>
+                                    <img src='https://picsum.photos/id/249/50/30' alt='Team 2' className='rounded-full' />
+                                </div>
+                                <div className='bg-gray-900 rounded px-3 py-2 text-center'>
+                                    <span className='text-2xl'>40</span>
+                                    <span className='mx-1 text-xl'>:</span>
+                                    <span className='text-2xl'>33</span>
+                                    <span className='mx-1 text-xl'>:</span>
+                                    <span className='text-2xl'>36</span>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <section className='bg-gradient-to-r from-blue-500 to-blue-400 text-white py-12 relative overflow-hidden'>
+                        <div className='container mx-auto px-4 relative z-10'>
+                            <h2 className='text-2xl font-bold mb-2'>Prime Big Deal Days</h2>
+                            <h1 className='text-5xl font-bold mb-6'>Members unlock early deals</h1>
+                            <button className='bg-yellow-400 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-300 transition'>
+                                Join Prime
+                            </button>
+                        </div>
+                        <div className='absolute right-20 bottom-0 transform rotate-6'>
+                            <div className='bg-orange-200 text-orange-800 rounded-lg shadow-lg p-6 transform rotate-3 skew-y-3'>
+                                <div className='bg-blue-500 text-white px-3 py-1 rounded-full inline-block mb-2 text-sm'>prime</div>
+                                <div className='w-40 h-32 bg-brown-500 bg-opacity-30'></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Main Content */}
+                    <main className='flex-grow py-6'>
+                        <div className='container mx-auto px-4'>
+                            {/* Product Categories */}
+                            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-8'>
+                                {/* First Category */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>Deals related to items you've saved</h3>
+                                    <div className='flex'>
+                                        <div className='w-1/3'>
+                                            <img src='https://picsum.photos/id/1/200/150' alt='Printer' className='rounded-md w-full' />
+                                        </div>
+                                        <div className='w-1/3 ml-4'>
+                                            <img src='https://picsum.photos/id/40/200/150' alt='Matcha' className='rounded-md w-full' />
+                                        </div>
+                                    </div>
+                                    <div className='mt-6 flex'>
+                                        <div className='w-1/2'>
+                                            <img src='https://picsum.photos/id/2/200/150' alt='Adapters' className='rounded-md w-full' />
+                                        </div>
+                                        <div className='w-1/2 ml-4'>
+                                            <img src='https://picsum.photos/id/3/200/150' alt='Magnesium' className='rounded-md w-full' />
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>See more deals</a>
+                                    </div>
+                                </div>
+
+                                {/* Second Category */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>Shine in designer jewelry</h3>
+                                    <div className='grid grid-cols-2 gap-4 mb-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/4/200/150' alt='Cartier' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Cartier</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/5/200/150' alt='Van Cleef' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Van Cleef</p>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/6/200/150' alt='Hermès' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Hermès</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/7/200/150' alt='Rolex' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Rolex</p>
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>Shop Luxury Stores</a>
+                                    </div>
+                                </div>
+
+                                {/* Third Category */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>Top-selling luxury beauty</h3>
+                                    <div className='grid grid-cols-2 gap-4 mb-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/8/200/150' alt='Skincare' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Skincare</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/9/200/150' alt='Makeup' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Makeup</p>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/10/200/150' alt='Fragrances' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Fragrances</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/11/200/150' alt='Saks Beauty' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Saks Beauty</p>
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>Shop beauty from Luxury Stores</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* More Categories */}
+                            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-8'>
+                                {/* Costumes Section */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>Costumes for the family</h3>
+                                    <div className='grid grid-cols-2 gap-4 mb-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/12/200/150' alt='Men' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Men</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/13/200/150' alt='Women' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Women</p>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/14/200/150' alt='Kids' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Kids</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/15/200/150' alt='Pets' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Pets</p>
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>Shop more Halloween</a>
+                                    </div>
+                                </div>
+
+                                {/* Star Gifts Section */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>Shop 4+ star gifts</h3>
+                                    <div className='grid grid-cols-2 gap-4 mb-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/16/200/150' alt='Beauty' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Beauty</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/17/200/150' alt='Electronics' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Electronics</p>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/18/200/150' alt='Fashion' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Fashion</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/19/200/150' alt='Toys' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Toys</p>
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>Shop gift ideas</a>
+                                    </div>
+                                </div>
+
+                                {/* Editors Picks Section */}
+                                <div className='bg-white rounded-lg shadow-md p-6'>
+                                    <h3 className='text-2xl font-semibold mb-4'>September editors' picks</h3>
+                                    <div className='grid grid-cols-2 gap-4 mb-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/20/200/150' alt='Fashion' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Fashion</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/21/200/150' alt='Fitness' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Fitness</p>
+                                        </div>
+                                    </div>
+                                    <div className='grid grid-cols-2 gap-4'>
+                                        <div>
+                                            <img src='https://picsum.photos/id/22/200/150' alt='Haircare' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Haircare</p>
+                                        </div>
+                                        <div>
+                                            <img src='https://picsum.photos/id/23/200/150' alt='Premium' className='rounded-md w-full' />
+                                            <p className='mt-1 text-center'>Premium</p>
+                                        </div>
+                                    </div>
+                                    <div className='mt-6'>
+                                        <a href='#' className='text-blue-600 hover:underline'>Shop The List</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Sign In Section */}
+                            <div className='bg-white rounded-lg shadow-md p-12 text-center mb-8'>
+                                <h2 className='text-3xl font-semibold mb-4'>See personalized recommendations</h2>
+                                <button className='bg-yellow-400 text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-yellow-300 transition mb-2'>
+                                    Sign in
+                                </button>
+                                <p className='text-sm'>New customer? <a href='#' className='text-blue-600 hover:underline'>Start here.</a></p>
+                            </div>
+                        </div>
+                    </main>
+
+                    {/* Back to Top Button */}
+                    <div className='bg-gray-700 text-white py-3 text-center cursor-pointer'>
+                        Back to top
+                    </div>
+
+                    {/* Footer */}
+                    <footer className='bg-gray-800 text-white pt-12 pb-6'>
+                        <div className='container mx-auto px-4'>
+                            {/* Footer Sections */}
+                            <div className='grid grid-cols-1 md:grid-cols-4 gap-8 mb-12'>
+                                {/* Column 1 */}
+                                <div>
+                                    <h4 className='text-xl font-semibold mb-4'>Get to Know Us</h4>
+                                    <ul className='space-y-2'>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Careers</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Newsletter</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>About Amazon</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Accessibility</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Sustainability</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Press Center</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Investor Relations</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Devices</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Science</a></li>
+                                    </ul>
+                                </div>
+
+                                {/* Column 2 */}
+                                <div>
+                                    <h4 className='text-xl font-semibold mb-4'>Make Money with Us</h4>
+                                    <ul className='space-y-2'>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Sell on Amazon</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Sell apps on Amazon</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Supply to Amazon</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Protect & Build Your Brand</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Become an Affiliate</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Become a Delivery Driver</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Start a Package Delivery Business</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Advertise Your Products</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Self-Publish with Us</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Become an Amazon Hub Partner</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>› See More Ways to Make Money</a></li>
+                                    </ul>
+                                </div>
+
+                                {/* Column 3 */}
+                                <div>
+                                    <h4 className='text-xl font-semibold mb-4'>Amazon Payment Products</h4>
+                                    <ul className='space-y-2'>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Visa</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Store Card</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Secured Card</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Business Card</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Shop with Points</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Credit Card Marketplace</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Reload Your Balance</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Gift Cards</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Currency Converter</a></li>
+                                    </ul>
+                                </div>
+
+                                {/* Column 4 */}
+                                <div>
+                                    <h4 className='text-xl font-semibold mb-4'>Let Us Help You</h4>
+                                    <ul className='space-y-2'>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Your Account</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Your Orders</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Shipping Rates & Policies</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Amazon Prime</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Returns & Replacements</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Manage Your Content and Devices</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Recalls and Product Safety Alerts</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Registry & Gift List</a></li>
+                                        <li><a href='#' className='text-gray-300 hover:text-white'>Help</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Language Selector */}
+                            <div className='flex justify-center mb-8'>
+                                <div className='flex items-center space-x-4'>
+                                    <img src='https://picsum.photos/id/249/50/30' alt='Amazon Logo' className='h-8' />
+                                    <div className='border border-gray-600 rounded-md bg-gray-700 px-4 py-2 flex items-center space-x-2'>
+                                        <i className='fas fa-globe text-gray-400'></i>
+                                        <span className='text-gray-300'>English</span>
+                                        <i className='fas fa-caret-down text-gray-400 ml-2'></i>
+                                    </div>
+                                    <div className='border border-gray-600 rounded-md bg-gray-700 px-4 py-2 flex items-center space-x-2'>
+                                        <i className='fas fa-flag text-gray-400'></i>
+                                        <span className='text-gray-300'>United States</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Additional Footer Services */}
+                            <div className='grid grid-cols-1 md:grid-cols-6 gap-6 mb-8'>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Music</h5>
+                                    <p className='text-xs text-gray-400'>Stream millions of songs</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Ads</h5>
+                                    <p className='text-xs text-gray-400'>Reach customers wherever they spend their time</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>6pm</h5>
+                                    <p className='text-xs text-gray-400'>Score deals on fashion brands</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>AbeBooks</h5>
+                                    <p className='text-xs text-gray-400'>Books, art & collectibles</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>ACX</h5>
+                                    <p className='text-xs text-gray-400'>Audiobook Publishing Made Easy</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Sell on Amazon</h5>
+                                    <p className='text-xs text-gray-400'>Start a Selling Account</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Veeqo</h5>
+                                    <p className='text-xs text-gray-400'>Shipping Software Inventory Management</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Business</h5>
+                                    <p className='text-xs text-gray-400'>Everything For Your Business</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Fresh</h5>
+                                    <p className='text-xs text-gray-400'>Groceries & More Right To Your Door</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>AmazonGlobal</h5>
+                                    <p className='text-xs text-gray-400'>Ship Orders Internationally</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Home Services</h5>
+                                    <p className='text-xs text-gray-400'>Experienced Pros Happiness Guarantee</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Web Services</h5>
+                                    <p className='text-xs text-gray-400'>Scalable Cloud Computing Services</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Audible</h5>
+                                    <p className='text-xs text-gray-400'>Listen to Books & Original Audio Performances</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Box Office Mojo</h5>
+                                    <p className='text-xs text-gray-400'>Find Movie Box Office Data</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Goodreads</h5>
+                                    <p className='text-xs text-gray-400'>Book reviews & recommendations</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>IMDb</h5>
+                                    <p className='text-xs text-gray-400'>Movies, TV & Celebrities</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>IMDbPro</h5>
+                                    <p className='text-xs text-gray-400'>Get Info Entertainment Professionals Need</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Kindle Direct Publishing</h5>
+                                    <p className='text-xs text-gray-400'>Indie Digital & Print Publishing Made Easy</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Photos</h5>
+                                    <p className='text-xs text-gray-400'>Unlimited Photo Storage Free With Prime</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Prime Video Direct</h5>
+                                    <p className='text-xs text-gray-400'>Video Distribution Made Easy</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Shopbob</h5>
+                                    <p className='text-xs text-gray-400'>Designer Fashion Brands</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Resale</h5>
+                                    <p className='text-xs text-gray-400'>Great Deals on Quality Used Products</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Whole Foods Market</h5>
+                                    <p className='text-xs text-gray-400'>America's Healthiest Grocery Store</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Woot!</h5>
+                                    <p className='text-xs text-gray-400'>Deals and Shenanigans</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Zappos</h5>
+                                    <p className='text-xs text-gray-400'>Shoes & Clothing</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Ring</h5>
+                                    <p className='text-xs text-gray-400'>Smart Home Security Systems</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>eero WiFi</h5>
+                                    <p className='text-xs text-gray-400'>Stream 4K Video in Every Room</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Blink</h5>
+                                    <p className='text-xs text-gray-400'>Smart Security for Every Home</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Neighbors App</h5>
+                                    <p className='text-xs text-gray-400'>Real-Time Crime & Safety Alerts</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Subscription Boxes</h5>
+                                    <p className='text-xs text-gray-400'>Top subscription boxes – right to your door</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>PillPack</h5>
+                                    <p className='text-xs text-gray-400'>Pharmacy Simplified</p>
+                                </div>
+                                <div>
+                                    <h5 className='text-sm text-gray-400'>Amazon Renewed</h5>
+                                    <p className='text-xs text-gray-400'>Like-new products you can trust</p>
+                                </div>
+                            </div>
+
+                            {/* Footer Bottom */}
+                            <div className='text-center text-gray-400 text-sm border-t border-gray-700 pt-6'>
+                                <div className='flex justify-center space-x-6 mb-4'>
+                                    <a href='#' className='hover:text-white'>Conditions of Use</a>
+                                    <a href='#' className='hover:text-white'>Privacy Notice</a>
+                                    <a href='#' className='hover:text-white'>Consumer Health Data Privacy Disclosure</a>
+                                    <a href='#' className='hover:text-white'>Your Ads Privacy Choices</a>
+                                    <img src='https://picsum.photos/id/249/50/30' alt='Privacy Shield' className='h-5 mt-1' />
+                                </div>
+                                <p>© 1996-2025, Amazon.com, Inc. or its affiliates</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

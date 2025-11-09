@@ -1,0 +1,270 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.0.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div className="min-h-screen bg-white">
+                    {/* Header */}
+                    <header className="bg-blue-900 text-white py-4">
+                        <div className="container mx-auto px-4 flex items-center justify-between">
+                            <div className="text-4xl font-light">Booking.com</div>
+                            <div className="flex items-center space-x-8">
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg">CNY</span>
+                                    <div className="w-8 h-6 bg-red-100 flex items-center justify-center rounded">
+                                        <span className="text-sm">🇬🇧</span>
+                                    </div>
+                                </div>
+                                <div className="w-8 h-8 rounded-full border border-white flex items-center justify-center">
+                                    <i className="text-white text-lg">?</i>
+                                </div>
+                                <div className="text-lg">List your property</div>
+                                <div className="flex space-x-4">
+                                    <button className="px-6 py-2 border border-white rounded hover:bg-white hover:text-blue-900 transition-colors">
+                                        Register
+                                    </button>
+                                    <button className="px-6 py-2 text-blue-100 hover:text-white transition-colors">
+                                        Sign in
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Hero Section */}
+                    <section className="bg-blue-900 text-white py-24">
+                        <div className="container mx-auto px-4">
+                            <h1 className="text-7xl font-light mb-6">Find your next stay</h1>
+                            <p className="text-3xl text-blue-100">Search low prices on hotels, homes and much more...</p>
+                        </div>
+                    </section>
+
+                    {/* Search Bar */}
+                    <div className="container mx-auto px-4 py-6">
+                        <div className="bg-white rounded-lg border-2 border-yellow-500 p-4">
+                            <div className="grid grid-cols-12 gap-4">
+                                <div className="col-span-4 relative">
+                                    <i className="fas fa-bed absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600"></i>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Osaka, Japan" 
+                                        defaultValue="Osaka, Japan"
+                                        className="w-full pl-12 pr-10 py-3 border-0 focus:outline-none text-lg"
+                                    />
+                                    <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800">
+                                        <i className="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div className="col-span-4 relative">
+                                    <i className="far fa-calendar-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600"></i>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Tue 14 Oct — Wed 15 Oct" 
+                                        defaultValue="Tue 14 Oct — Wed 15 Oct"
+                                        className="w-full pl-12 pr-10 py-3 border-0 focus:outline-none text-lg"
+                                    />
+                                </div>
+                                <div className="col-span-3 relative">
+                                    <i className="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-600"></i>
+                                    <input 
+                                        type="text" 
+                                        placeholder="2 adults · 0 children · 1 room" 
+                                        defaultValue="2 adults · 0 children · 1 room"
+                                        className="w-full pl-12 pr-10 py-3 border-2 border-blue-500 rounded-lg focus:outline-none text-lg"
+                                    />
+                                    <button className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800">
+                                        <i className="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <div className="col-span-1">
+                                    <button className="w-full h-16 bg-blue-600 hover:bg-blue-700 text-white text-2xl font-light transition-colors">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Checkbox */}
+                        <div className="mt-6 flex items-center space-x-4">
+                            <div className="w-6 h-6 border-2 border-gray-600 rounded"></div>
+                            <span className="text-lg text-gray-800">I'm looking for an entire home or apartment</span>
+                        </div>
+                    </div>
+
+                    {/* Offers Section */}
+                    <section className="container mx-auto px-4 py-8">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Offers</h2>
+                        <p className="text-xl text-gray-600 mb-6">Promotions, deals and special offers for you</p>
+                        
+                        <div className="grid grid-cols-12 gap-8">
+                            <div className="col-span-6 bg-white rounded-lg border border-gray-200 p-6">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex-1">
+                                        <h3 className="text-3xl font-bold text-gray-900 mb-4">Quick escape, quality time</h3>
+                                        <p className="text-xl text-gray-800 mb-6">Save up to 20% with a Getaway Deal</p>
+                                        <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg rounded-lg transition-colors">
+                                            Save on stays
+                                        </button>
+                                    </div>
+                                    <div className="ml-8">
+                                        <img src="https://picsum.photos/200/150?random=7" alt="Family" className="w-32 h-32 rounded-lg object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="col-span-6 bg-black rounded-lg text-white p-6 relative">
+                                <div className="absolute top-4 right-4 w-32 h-20 bg-gradient-to-r from-transparent to-black opacity-70 rounded-full"></div>
+                                <div className="absolute top-16 right-4 text-xs opacity-60">Late Escape Offer</div>
+                                <h3 className="text-2xl font-bold mb-4 mt-8">Go for it</h3>
+                                <p className="text-lg mb-6">Squeeze more</p>
+                                <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                                    Find deals
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Modal Popup */}
+                    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl p-8 w-96">
+                        <div className="grid grid-cols-2 gap-6">
+                            <div className="col-span-2 mb-6">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-lg font-medium text-gray-900">Adults</span>
+                                    <div className="flex items-center space-x-2">
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-gray-600 hover:bg-gray-50">
+                                            <i className="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <span className="text-xl font-medium w-8 text-center">2</span>
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-blue-600 hover:bg-blue-50">
+                                            <i className="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="col-span-2 mb-6">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-lg font-medium text-gray-900">Children</span>
+                                    <div className="flex items-center space-x-2">
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-gray-600 hover:bg-gray-50">
+                                            <i className="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <span className="text-xl font-medium w-8 text-center">0</span>
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-blue-600 hover:bg-blue-50">
+                                            <i className="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="col-span-2 mb-6">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-lg font-medium text-gray-900">Rooms</span>
+                                    <div className="flex items-center space-x-2">
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-gray-600 hover:bg-gray-50">
+                                            <i className="fas fa-minus text-sm"></i>
+                                        </button>
+                                        <span className="text-xl font-medium w-8 text-center">1</span>
+                                        <button className="w-8 h-8 border border-gray-300 rounded flex items-center justify-center text-blue-600 hover:bg-blue-50">
+                                            <i className="fas fa-plus text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="col-span-2 border-t pt-6">
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="text-lg font-medium text-gray-900">Travelling with pets?</span>
+                                    <div className="w-12 h-6 bg-gray-300 rounded-full relative">
+                                        <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5 shadow"></div>
+                                    </div>
+                                </div>
+                                <div className="text-gray-800">
+                                    <p className="mb-2">Assistance animals aren't considered pets.</p>
+                                    <a href="#" className="text-blue-600 hover:underline">
+                                        Read more about travelling with assistance animals
+                                    </a>
+                                </div>
+                                
+                                <button className="w-full mt-8 px-6 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 text-lg font-light transition-colors">
+                                    Done
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Explore China Section */}
+                    <section className="container mx-auto px-4 py-12 bg-gray-50">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Explore China</h2>
+                        <p className="text-xl text-gray-600 mb-8">These popular destinations have a lot to offer</p>
+                        
+                        <div className="grid grid-cols-6 gap-6">
+                            <CityCard 
+                                name="Shanghai" 
+                                properties="1,548 properties" 
+                                image="https://picsum.photos/300/200?random=1"
+                            />
+                            <CityCard 
+                                name="Guangzhou" 
+                                properties="1,066 properties" 
+                                image="https://picsum.photos/300/200?random=2"
+                            />
+                            <CityCard 
+                                name="Beijing" 
+                                properties="1,096 properties" 
+                                image="https://picsum.photos/300/200?random=3"
+                            />
+                            <CityCard 
+                                name="Shenzhen" 
+                                properties="617 properties" 
+                                image="https://picsum.photos/300/200?random=4"
+                            />
+                            <CityCard 
+                                name="Chengdu" 
+                                properties="598 properties" 
+                                image="https://picsum.photos/300/200?random=5"
+                            />
+                            <CityCard 
+                                name="Sanya" 
+                                properties="227 properties" 
+                                image="https://picsum.photos/300/200?random=6"
+                            />
+                        </div>
+                    </section>
+
+                    {/* Scroll Indicator */}
+                    <div className="fixed bottom-6 right-6">
+                        <div className="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 cursor-pointer transition-colors">
+                            <i className="fas fa-chevron-down text-gray-600"></i>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const CityCard = ({ name, properties, image }) => {
+            return (
+                <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <img src={image} alt={name} className="w-full h-48 object-cover" />
+                    <div className="p-4">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-1">{name}</h3>
+                        <p className="text-gray-600">{properties}</p>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

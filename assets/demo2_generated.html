@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministry of Tourism and Antiquities</title>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.0.0/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.0.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #b8b4e8;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const App = () => {
+            return (
+                <div className="min-h-screen bg-purple-300">
+                    <header className="bg-white py-6 px-6 shadow-md">
+                        <div className="container mx-auto flex items-center justify-between">
+                            <div className="flex items-center space-x-4">
+                                <div className="bg-gray-800 p-2 rounded-full">
+                                    <i className="fas fa-bars text-white text-xl"></i>
+                                </div>
+                                <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 rounded-full border-2 border-yellow-700 flex items-center justify-center">
+                                        <img src="https://picsum.photos/seed/logo/100/100" alt="Logo" className="w-10 h-10 rounded-full" />
+                                    </div>
+                                    <h1 className="text-2xl text-gray-800 font-bold">Ministry of Tourism and Antiquities</h1>
+                                </div>
+                            </div>
+                            
+                            <div className="flex items-center space-x-8">
+                                <div className="flex items-center space-x-2">
+                                    <span className="text-lg text-gray-800">A</span>
+                                    <span className="text-lg text-gray-800">A</span>
+                                    <span className="text-lg text-gray-800">A</span>
+                                </div>
+                                
+                                <div className="flex items-center space-x-6">
+                                    <button className="flex items-center space-x-1 text-gray-800">
+                                        <i className="fas fa-moon"></i>
+                                    </button>
+                                    
+                                    <button className="text-gray-800 hover:text-blue-600">
+                                        Register / Login
+                                    </button>
+                                    
+                                    <div className="flex items-center space-x-2">
+                                        <span className="text-gray-800">English</span>
+                                        <i className="fas fa-chevron-down text-gray-600"></i>
+                                    </div>
+                                    
+                                    <button className="text-gray-800 hover:text-blue-600">
+                                        <i className="fas fa-search text-xl"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <main className="container mx-auto py-12 px-6">
+                        <div className="mb-8">
+                            <div className="flex items-center space-x-2 mb-4">
+                                <a href="#" className="text-gray-800 hover:text-blue-600">
+                                    <i className="fas fa-home"></i>
+                                </a>
+                                <span className="text-gray-500">&gt;</span>
+                                <span className="text-gray-800">World Heritage</span>
+                            </div>
+                            
+                            <h2 className="text-5xl text-gray-900 font-bold mb-8">World Heritage</h2>
+                            
+                            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+                                <div className="flex items-center">
+                                    <span className="text-2xl text-gray-800 mr-4">Search</span>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Keyword" 
+                                        className="border-2 border-gray-300 rounded-lg px-4 py-2 w-96 focus:outline-none focus:border-blue-500"
+                                    />
+                                    <div className="flex ml-2">
+                                        <button className="bg-gray-500 text-white p-2 rounded-l-lg">
+                                            <i className="fas fa-sync-alt"></i>
+                                        </button>
+                                        <button className="bg-indigo-900 text-white p-2 rounded-r-lg">
+                                            <i className="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <HeritageCard 
+                                    title="Nubian Monuments from..."
+                                    description="Nubia is a geographic region in the south of Egypt and the north Sudan. A number of important sites are located in the region between Aswan and Abu..."
+                                    imageSrc="https://picsum.photos/seed/abu-simbel/400/300"
+                                />
+                                
+                                <HeritageCard 
+                                    title="Ancient Thebes and its..."
+                                    description="The ancient city of Thebes, modern Luxor in the south of Egypt, was one of the most important cities from the Middle Kingdom (c.2055–1650 BC) onward..."
+                                    imageSrc="https://picsum.photos/seed/luxor/400/300"
+                                />
+                                
+                                <HeritageCard 
+                                    title="Memphis and its Necrop..."
+                                    description="Memphis, near the modern village of Mit Rahina not far from Cairo, and its necropolis were added to UNESCO's World Heritage List in 1979. Said to..."
+                                    imageSrc="https://picsum.photos/seed/memphis/400/300"
+                                />
+                                
+                                <HeritageCard 
+                                    title="Historic Cairo"
+                                    description="Cairo, the capital of Egypt, was founded in 969 BC by Jawhar al-Siqilli, the general of the Fatimid Caliph al-Mu'izz. As the city grew over time, i..."
+                                    imageSrc="https://picsum.photos/seed/cairo/400/300"
+                                />
+                                
+                                <HeritageCard 
+                                    title="Islamic Cairo"
+                                    description="ISLAMIC CAIRO: THE CITY OF CALIPHS (11th-18th century)..."
+                                    imageSrc="https://picsum.photos/seed/islamic-cairo/400/300"
+                                />
+                                
+                                <HeritageCard 
+                                    title="... "
+                                    description=""
+                                    imageSrc="https://picsum.photos/seed/other/400/300"
+                                />
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            );
+        };
+
+        const HeritageCard = ({ title, description, imageSrc }) => {
+            return (
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src={imageSrc} alt={title} className="w-full h-48 object-cover" />
+                    <div className="p-6">
+                        <h3 className="text-3xl text-gray-900 font-bold mb-4">{title}</h3>
+                        <p className="text-gray-600 text-sm mb-6 line-clamp-3">{description}</p>
+                        <button className="flex items-center space-x-2 text-gray-900 hover:text-blue-600 font-medium">
+                            <span>Read More</span>
+                            <span className="bg-gray-200 text-gray-900 rounded-full w-6 h-6 flex items-center justify-center">
+                                <i className="fas fa-plus text-xs"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
