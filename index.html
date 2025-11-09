@@ -998,6 +998,12 @@
             font-weight: 600;
         }
 
+        .highlight-red {
+            color: #d32f2f;      /* 柔和但醒目的红色 */
+            font-weight: 600;    /* 比正常字稍微加粗一点 */
+        }
+
+
     </style>
 </head>
 <body>
@@ -1065,7 +1071,7 @@
             <div class="abstract-content">
                 <p>
                     User interface (UI) programming is a core yet highly complex part of modern software development. 
-                    Recent advances in visual language models (VLMs) highlight the potential of automatic UI coding, but current approaches face two key limitations: 
+                    Recent advances in visual language models (VLMs) highlight the potential of automatic UI coding, but current approaches face <span class="highlight-red">two key limitations</span>:
                     multimodal coding capabilities remain underdeveloped, and single-turn paradigms make little use of iterative visual feedback. 
                     We address these challenges with an interactive UI-to-code paradigm that better reflects real-world workflows and raises the upper bound of achievable performance.
                     Under this paradigm, we present <strong>UI2Code<sup>N</sup></strong>, a visual language foundation model trained through staged pretraining, fine-tuning, and reinforcement learning to achieve foundational improvements in multimodal coding. 
@@ -1099,7 +1105,7 @@
         <div class="container">
             <h2>Training Recipe</h2>
             <p class="abstract-content">
-                Although recent VLMs have demonstrated substantial progress on general vision benchmarks, their performance on UI coding remains limited due to two main challenges.
+                Although recent VLMs have demonstrated substantial progress on general vision benchmarks, their performance on UI coding remains limited due to <span class="highlight-red">two main challenges</span>.
             </p>
             <p class="abstract-content">
                 <strong>First</strong>, the inherent difficulty of UI coding: the model must perceive UI-style images with fine-grained details such as icons, fonts, and layout structures—quite different from natural images used in conventional pretraining. Moreover, UI code (HTML/CSS/JavaScript) can exceed 10,000 tokens and requires precise alignment between image and code at both global and element-level.
@@ -1109,7 +1115,7 @@
             </p>
 
             <p class="abstract-content">
-                <strong>We design a three-stage training pipeline:</strong>
+                We design a <strong>three-stage training pipeline:</strong>
             </p>
 
             <div class="training-pipeline">
