@@ -460,7 +460,7 @@
 
         /* ✅ 放大 Agentic Framework 里的图片 */
         .framework .figure img {
-            max-width: 95%;   /* 你可以改成 85%、100% 都可以 */
+            max-width: 100%;   /* 你可以改成 85%、100% 都可以 */
             margin: 0 auto;
             display: block;
         }
@@ -478,7 +478,7 @@
         }
 
         .function-figure img {
-            width: 95%;          /* 让图更宽一些 */
+            width: 98%;          /* 让图更宽一些 */
             max-width: 1100px;   /* 防止超出页面 */
             display: block;
             margin: 0 auto;
@@ -749,7 +749,7 @@
         }
 
         .intro-figure img.intro-img {
-            max-width: 70%;   /* 你可以改成 60%、65%，控制宽度 */
+            max-width: 75%;   /* 你可以改成 60%、65%，控制宽度 */
             height: auto;
             display: inline-block;
         }
@@ -981,6 +981,23 @@
             background: white;
         }
 
+        /* 列表整体右缩进 */
+        .training-pipeline {
+            padding-left: 3.2rem;   /* 可调，1.5rem 也行 */
+            margin-top: 0.5rem;
+        }
+
+        /* 每一行稍微留点间距，看起来更舒服 */
+        .training-pipeline li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Stage 前缀仍然红色 */
+        .training-pipeline strong {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
     </style>
 </head>
 <body>
@@ -1095,15 +1112,15 @@
                 <strong>We design a three-stage training pipeline:</strong>
             </p>
 
-            <ul class="abstract-content">
+            <div class="training-pipeline">
                 <li><strong>Stage 1 — Continual Pre-training:</strong> Train on large-scale real webpage image–HTML pairs to build broad UI coding foundations.</li>
                 <li><strong>Stage 2 — Supervised Fine-tuning:</strong> Use curated clean datasets to enhance core capabilities: UI-to-code generation, UI editing, and UI polishing.</li>
                 <li><strong>Stage 3 — Reinforcement Learning:</strong> Adapt the model to complex real-world webpages using a verifier-based reward without paired ground-truth HTML.</li>
             </ul>
 
             <!-- Method Overview Figure -->
-            <div class="figure" style="max-width:100%; text-align:center;">
-                <img src="assets/fig3.png" alt="Three-Stage Training Pipeline" style="width:100%; display:inline-block;">
+            <div class="figure" style="max-width:110%; text-align:center;">
+                <img src="assets/fig3.png" alt="Three-Stage Training Pipeline" style="width:110%; display:inline-block;">
             </div>
         </div>
     </section>
