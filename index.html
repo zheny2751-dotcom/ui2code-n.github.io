@@ -43,11 +43,23 @@
             color: #475569;
         }
 
+        /* 去掉作者名字链接下划线 + 设置颜色 */
+        .authors a {
+            text-decoration: none !important;  /* 取消下划线 */
+            color: #2b6cb0;                    /* 保持蓝色 */
+        }
+
+        /* 悬停时也不要出现下划线 */
+        .authors a:hover {
+            text-decoration: none !important;
+            color: #1a4f8b;                    /* 悬停时颜色稍深，可以保留/调整 */
+        }
+
         .authors {
             margin: 25px 0;
             font-size: 1.15em;
             font-weight: 400;
-            color: #1a202c;
+            color: #2b6cb0;
         }
 
         .authors span {
@@ -618,7 +630,7 @@
         /* 作者名字 */
         footer .author-name {
             font-weight: 600;
-            color: #000;
+            color: #2b6cb0;
             margin-bottom: 10px;
         }
 
@@ -977,14 +989,14 @@
         <div class="container">
             <h1>UI2Code^N: A Visual Language Model for Test-Time Scalable Interactive UI-to-Code Generation</h1>
             <div class="authors">
-                <span><strong>Zhen Yang<sup>1,3*</sup></strong></span>
-                <span><strong>Wenyi Hong<sup>1,3*</sup></strong></span>
-                <span><strong>Mingde Xu<sup>2,3</sup></strong></span>
-                <span><strong>Xinyue Fan<sup>3</sup></strong></span>
-                <span><strong>Weihan Wang<sup>3</sup></strong></span>
-                <span><strong>Jiele Cheng<sup>1,3</sup></strong></span>
-                <span><strong>Xiaotao Gu<sup>3</sup></strong></span>
-                <span><strong>Jie Tang<sup>1†</sup></strong></span>
+                <span><strong><a href="https://zyang-16.github.io/zhenyang.github.io/" target="_blank" >Zhen Yang<sup>1,3*</sup></a></strong></span>
+                <span><strong><a href="https://wenyihong.github.io/" target="_blank" >Wenyi Hong<sup>1,3*</sup></a></strong></span>
+                <span><strong><a href="#" target="_blank" >Mingde Xu<sup>2,3</sup></a></strong></span>
+                <span><strong><a href="#" target="_blank" >Xinyue Fan<sup>3</sup></a></strong></span>
+                <span><strong><a href="https://scholar.google.com/citations?user=UaxGkIwAAAAJ&hl=zh-CN" target="_blank" >Weihan Wang<sup>3</sup></a></strong></span>
+                <span><strong><a href="https://scholar.google.com/citations?user=WcAly8wAAAAJ&hl=zh-CN" target="_blank" >Jiele Cheng<sup>1,3</sup></a></strong></span>
+                <span><strong><a href="https://scholar.google.com/citations?user=YR4Lp0QAAAAJ&hl=en" target="_blank" >Xiaotao Gu<sup>3</sup></a></strong></span>
+                <span><strong><a href="https://keg.cs.tsinghua.edu.cn/jietang/" target="_blank" >Jie Tang<sup>1†</sup></a></strong></span>
             </div>
             <div class="affiliation">
                 <span><sup>1</sup> Department of Computer Science and Technology, Tsinghua University</span><br>
