@@ -37,7 +37,7 @@
 
         .header .subtitle {
             font-size: 1.4em;
-            max-width: 900px;
+            max-width: 1300px;
             margin: 0 auto 30px;
             font-weight: 300;
             color: #475569;
@@ -125,7 +125,7 @@
             text-align: center;
             font-size: 1.15em;
             color: #64748b;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto 50px;
         }
 
@@ -179,7 +179,7 @@
         }
 
         .abstract-content {
-            max-width: 950px;
+            max-width: 1100px;
             margin: 0 auto;
             font-size: 1.12em;
             line-height: 1.9;
@@ -360,7 +360,7 @@
         }
 
         .intro-block {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 10px auto 20px;  /* ✅ 比原来更贴合后面的内容 */
             font-size: 1.05em;
             color: #444;
@@ -467,7 +467,7 @@
 
         .function-figure img {
             width: 85%;          /* 让图更宽一些 */
-            max-width: 1200px;   /* 防止超出页面 */
+            max-width: 1100px;   /* 防止超出页面 */
             display: block;
             margin: 0 auto;
             border-radius: 10px; /* 如果想要圆角可以保留 */
@@ -475,14 +475,14 @@
 
         /* ✅ 设置 Demo 内容整体居中但内部左对齐 */
         .task-examples .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         /* ✅ 每个 demo 块整体左对齐 */
         .demo-section {
             text-align: left;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         /* ✅ 标题风格统一 */
@@ -556,88 +556,142 @@
             font-size: 0.9em;
         }
 
+        /* 整体 Section 间距变小 */
         .citation {
-            background: #1a202c;
-            color: white;
-            padding: 80px 20px;
-            border-bottom: none;
+            margin-top: 20px;      /* 缩小整体上边距 */
+            margin-bottom: 20px;
         }
 
+        /* 标题下间距缩小 */
         .citation h2 {
-            color: white;
+            margin-bottom: 0px;
         }
 
+        /* 代码容器样式 */
         .citation-box {
-            max-width: 900px;
-            margin: 30px auto;
-            background: #0f172a;
-            padding: 30px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 0px;
+            padding: 15px 20px;          /* 上下左右都缩小 */
+            width: 95%;                  /* 变宽一点 */
+            margin: 0 auto;              /* 居中 */
+            font-family: "Courier New", monospace;
+            font-size: 15px;
+            
+            /* 横向滚动支持 */
             overflow-x: auto;
-            border: 1px solid #334155;
-            line-height: 1.6;
+            white-space: pre;
         }
 
-        .footer {
-            background: #0f172a;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: none;
+        /* 去掉多余上下空白：pre 默认 margin 需要清除 */
+        .citation-box pre {
+            margin: 0;
         }
 
-        .footer-content {
-            max-width: 800px;
+        /* 优化滚动条（可选） */
+        .citation-box::-webkit-scrollbar {
+            height: 6px;
+        }
+        .citation-box::-webkit-scrollbar-thumb {
+            background: #bbb;
+            border-radius: 4px;
+        }
+        .citation-box::-webkit-scrollbar-track {
+            background: #eee;
+        }
+
+        /* Footer 白色背景 + 居中显示 */
+        footer {
+            background-color: #ffffff;      /* 白色背景 */
+            color: #333333;                 /* 深色文字 */
+            padding: 40px 0 30px 0;         /* 上下间距优化 */
+            text-align: center;             /* 所有文字居中 */
+        }
+
+        /* 让内部内容宽度固定并居中 */
+        footer .footer-content {
+            max-width: 1000px;               /* 控制内容宽度，不让太分散 */
+            margin: 0 auto;                 /* 居中 */
+            padding: 0 20px;                /* 两边加点留白 */
+        }
+
+        /* 作者名字 */
+        footer .author-name {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        /* 学校文字 */
+        footer .author-affiliation {
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        /* 版权文字 */
+        footer .license-text,
+        footer .footer-bottom {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* 分割线（可选） */
+        footer hr {
+            width: 60%;
+            margin: 20px auto;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+
+        footer, .footer {
+            background-color: #f7f7f7;
+            padding: 20px 0 30px;
+        }
+
+        footer .footer-content,
+        .footer .footer-content {
+            max-width: 1000px;
             margin: 0 auto;
+            text-align: center;
         }
 
+
+        /* Footer Authors 横向排列 */
         .footer-authors {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 30px 0;
-            flex-wrap: wrap;
+            gap: 120px;            /* 横向间距（可保持不变） */
+            margin-top: 40px;      /* ✅ 与上面内容的距离 */
+            margin-bottom: 40px;   /* ✅ 与下面内容的距离 */
         }
 
-        .footer-author {
+
+        .footer-authors .author {
             text-align: center;
         }
 
-        .footer-author h4 {
-            color: #94a3b8;
-            margin-bottom: 5px;
-            font-size: 1.05em;
+        .footer-authors .author-name {
+            font-weight: 600;
+            font-size: 20px;
+            color: #4a5568;
         }
 
-        .footer-author p {
-            color: #64748b;
-            font-size: 0.9em;
+        .footer-authors .author-affiliation {
+            font-size: 16px;
+            color: #666;
         }
 
-        .footer a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: color 0.3s;
+
+        /* “回到顶部”按钮反色适配：白底 → 深色按钮更明显 */
+        #back-to-top {
+            background-color: #333;      /* 深色 */
+            color: #fff;                 /* 白色箭头 */
         }
 
-        .footer a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-
-        .footer-note {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            font-size: 0.9em;
-            color: #64748b;
-        }
 
         /* Narrow experiment section for better readability */
         #experiments .container {
-            max-width: 950px;   /* 也可以改成 900 或 1000 */
+            max-width: 1100px;   /* 也可以改成 900 或 1000 */
             margin: 0 auto;
         }
         #experiments table {
@@ -683,7 +737,7 @@
         }
 
         .intro-figure img.intro-img {
-            max-width: 50%;   /* 你可以改成 60%、65%，控制宽度 */
+            max-width: 70%;   /* 你可以改成 60%、65%，控制宽度 */
             height: auto;
             display: inline-block;
         }
@@ -744,6 +798,25 @@
             }
         }
 
+        .title-text {
+            display: block;          /* ✅ 强制独占一行 */
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .live-link {
+            display: block;          /* ✅ 显示在下一行 */
+            margin-top: 6px;
+            font-size: 18px;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .live-link:hover {
+            text-decoration: underline;
+        }
+
+
         .abc-flow {
             display: flex;
             align-items: center;
@@ -774,7 +847,7 @@
             padding: 10px;
             border-radius: 8px;
             text-align: left;
-            max-height: 250px;
+            max-height: 300px;
             overflow-y: auto;
         }
 
@@ -786,7 +859,7 @@
 
 
         .intro-content {
-            max-width: 950px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -838,7 +911,7 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            min-height: 600px;  /* 添加这个！让黑色背景有最小高度 */
+            min-height: 700px;  /* 添加这个！让黑色背景有最小高度 */
         }
 
         .code-block-2 {
@@ -887,7 +960,7 @@
         }
 
         .abc-img-demo-2 {
-            width: 100%;
+            width: 105%;
             height: auto;  /* 改为auto，让图片按原始比例显示 */
             max-height: none;  /* 移除最大高度限制 */
             border-radius: 8px;
@@ -1051,7 +1124,7 @@
                     <!-- A: Reference Screenshot -->
                     <div class="abc-block">
                         <div class="abc-title">
-                            <span class="label">Reference Screenshot</span>
+                            <span class="title-text">Reference Screenshot</span>
                         </div>
                         <img src="assets/demo1_reference.png" alt="Reference UI" class="abc-img-demo" 
                             onerror="this.src='https://via.placeholder.com/400x500/667eea/ffffff?text=Reference+Screenshot'">
@@ -1062,7 +1135,7 @@
                     <!-- B: Generated HTML Code -->
                     <div class="abc-block">
                         <div class="abc-title">
-                            <span class="label">Generated HTML Code</span>
+                            <span class="title-text">Generated HTML Code</span>
                             <a href="assets/demo1_generated.html" target="_blank" class="view-live-btn">
                                 👁️ View Live Demo
                             </a>
@@ -1147,7 +1220,7 @@
                     <!-- C: Rendered Result -->
                     <div class="abc-block">
                         <div class="abc-title">
-                            <span class="label">Rendered Result</span>
+                            <span class="title-text">Rendered Result</span>
                         </div>
                         <img src="assets/demo1_rendered.png" alt="Rendered UI" class="abc-img-demo-2"
                             onerror="this.src='https://via.placeholder.com/400x500/764ba2/ffffff?text=Rendered+Result'">
@@ -1165,7 +1238,7 @@
                     <div class="abc-block">
                         
                         <div class="abc-title">
-                            <span class="label">Reference Screenshot</span>
+                            <span class="title-text">Reference Screenshot</span>
                         </div>
                         <img src="assets/demo2_reference.png" alt="Reference UI" class="abc-img-demo" 
                             onerror="this.src='https://via.placeholder.com/400x500/667eea/ffffff?text=Reference+Screenshot'">
@@ -1181,7 +1254,7 @@
                     <!-- B: Generated HTML Code -->
                     <div class="abc-block">
                         <div class="abc-title">
-                            <span class="label">Generated HTML Code</span>
+                            <span class="title-text">Generated HTML Code</span>
                             <a href="assets/demo2_generated.html" target="_blank" class="view-live-btn">
                                 👁️ View Live Demo
                             </a>
@@ -1266,7 +1339,7 @@
                     <!-- C: Rendered Result -->
                     <div class="abc-block">
                         <div class="abc-title">
-                            <span class="label">Rendered Result</span>
+                            <span class="title-text">Rendered Result</span>
                         </div>
                         <img src="assets/demo2_rendered.png" alt="Rendered UI" class="abc-img-demo"
                             onerror="this.src='https://via.placeholder.com/400x500/764ba2/ffffff?text=Rendered+Result'">
@@ -1285,7 +1358,7 @@
         <!-- A: Reference Screenshot -->
         <div class="abc-block">
             <div class="abc-title">
-                <span class="label">Reference Screenshot</span>
+                <span class="title-text">Reference Screenshot</span>
             </div>
             <img src="assets/demo3_reference.png" alt="Reference UI" class="abc-img-demo" 
                 onerror="this.src='https://via.placeholder.com/400x500/667eea/ffffff?text=Reference+Screenshot'">
@@ -1296,7 +1369,7 @@
         <!-- B: First Generated HTML Code -->
         <div class="abc-block">
             <div class="abc-title">
-                <span class="label">First Generated HTML Code</span>
+                <span class="title-text">First Generated HTML Code</span>
                 <a href="assets/demo3_first.html" target="_blank" class="view-live-btn">
                     👁️ View Live Demo
                 </a>
@@ -1343,7 +1416,7 @@
         <!-- C: First Rendered Result -->
         <div class="abc-block">
             <div class="abc-title">
-                <span class="label">First Rendered Result</span>
+                <span class="title-text">First Rendered Result</span>
             </div>
             <img src="assets/demo3_first_rendered.png" alt="First Rendered UI" class="abc-img-demo"
                 onerror="this.src='https://via.placeholder.com/400x500/999999/ffffff?text=First+Result'">
@@ -1371,7 +1444,7 @@
         <!-- B: Polished HTML Code -->
         <div class="abc-block">
             <div class="abc-title">
-                <span class="label">Polished HTML Code</span>
+                <span class="title-text">Polished HTML Code</span>
                 <a href="assets/demo3_polished.html" target="_blank" class="view-live-btn">
                     👁️ View Live Demo
                 </a>
@@ -1431,7 +1504,7 @@
         <!-- C: Polished Rendered Result -->
         <div class="abc-block">
             <div class="abc-title">
-                <span class="label">Polished Result</span>
+                <span class="title-text">Polished Result</span>
             </div>
             <img src="assets/demo3_polished_rendered.png" alt="Polished UI" class="abc-img-demo"
                 onerror="this.src='https://via.placeholder.com/400x500/764ba2/ffffff?text=Polished+Result'">
@@ -1533,26 +1606,27 @@
 
 
     <!-- Citation -->
-    <section class="citation">
-        <div class="container citation-center">
-            <h2>Citation</h2>
-            <div class="citation-box">
-    <pre><code>@article{ui2coden2025,
+<section class="citation">
+    <div class="container citation-center">
+        <h2>Citation</h2>
+        <div class="citation-box">
+<pre><code>@article{ui2coden2025,
     title   = {UI2Code$^{N}$: A Visual Language Model for Test-Time Scalable Interactive UI-to-Code Generation},
     author  = {Yang, Zhen and Hong, Wenyi and Xu, Mingde and Fan, Xinyue and Wang, Weihan and Gu, Xiaotao and Tang, Jie},
     journal = {arXiv preprint arXiv:2501.XXXXX},
     year    = {2025}
-    }
-    </code></pre>
-            </div>
+}
+</code></pre>
         </div>
-    </section>
+    </div>
+</section>
+
 
 
     <!-- Footer -->
     <div class="footer">
         <div class="footer-content">
-            <h3>Core Authors  & Corresponding Authors</h3>
+            <h2>Core Authors & Corresponding Authors</h2>
             <div class="footer-authors">
                 <div class="footer-author">
                     <h4>
