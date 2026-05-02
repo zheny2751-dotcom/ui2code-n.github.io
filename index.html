@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI2Code^N: UI-to-Code Generation as Interactive Visual Optimization</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <script>
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -1051,22 +1062,39 @@
             </div>
             
             <div class="intro-block method-block" style="text-align: left;">
+                <p style="margin-top: 20px;">We formalize this process as a feedback-driven transformation:</p>
+                <p style="text-align: center;">$$ \mathcal{F}_{\theta}(I, C, R, E) \rightarrow C^{\prime} $$</p>
+                <p>where $I$ denotes the target UI image, $C$ the current code, $R = \text{Render}(C)$ the rendered output, $E$ optional modification instructions, and $C^{\prime}$ the updated code. The optimization objective is to find code $C^{*}$ that minimizes an implicit visual discrepancy $\mathcal{D}$:</p>
+                <p style="text-align: center;">$$ C^{*} = \arg\min_{C} \mathcal{D}(I, \text{Render}(C)) $$</p>
+
                 <h3>1. Instantiations of Visual Optimization</h3>
                 <p>This interactive paradigm naturally unifies three key capabilities by defining how feedback and constraints are introduced:</p>
                 <ul>
-                    <li><strong>UI Drafting:</strong> Initializes the optimization process by producing a first-pass code approximation from the target UI screenshot.</li>
-                    <li><strong>UI Polishing (Visual Refinement):</strong> Iteratively improves code quality by explicitly comparing the rendered execution feedback against the target UI. This refinement loop progressively reduces visual discrepancies and enables <strong>test-time scaling</strong>.</li>
-                    <li><strong>UI Editing:</strong> Acts as a conditional variant of refinement where localized code updates are guided by explicit natural language modification instructions along with the visual context.</li>
+                    <li style="margin-bottom: 15px;"><strong>UI Drafting:</strong> Initializes the optimization process by producing a first-pass code approximation from the target UI screenshot:
+                    <br><br>$$ C^{(0)} = \mathcal{F}_{\theta}(I) $$
+                    </li>
+                    <li style="margin-bottom: 15px;"><strong>UI Polishing (Visual Refinement):</strong> Iteratively improves code quality by explicitly comparing the rendered execution feedback against the target UI. This refinement loop progressively reduces visual discrepancies and enables test-time scaling:
+                    <br><br>$$ C^{(t+1)} = \mathcal{F}_{\theta}(I, C^{(t)}, R^{(t)}), \quad R^{(t)} = \text{Render}(C^{(t)}) $$
+                    </li>
+                    <li style="margin-bottom: 15px;"><strong>UI Editing:</strong> Acts as a conditional variant of refinement where localized code updates are guided by explicit natural language modification instructions $E$:
+                    <br><br>$$ C^{\prime} = \mathcal{F}_{\theta}(I, C, E) $$
+                    </li>
                 </ul>
 
                 <h3>2. Relative Visual Policy Optimization (RVPO)</h3>
                 <p>
-                    The optimization objective is defined over rendered UI outcomes, which are non-differentiable. Furthermore, absolute visual scoring by VLM judges is often noisy and poorly calibrated. To address this, we propose <strong>Relative Visual Policy Optimization (RVPO)</strong>.
+                    The optimization objective is defined over rendered UI outcomes, which are non-differentiable. Furthermore, absolute visual scoring by VLM judges is often noisy and poorly calibrated. To address this, we optimize a rank-based surrogate objective measuring expected preference:
                 </p>
+                <p style="text-align: center;">$$ \mathcal{L}_{\text{rank}}(\theta) = \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} \left[ \mathbb{E}_{y^{\prime} \sim \pi_{\theta}(\cdot|x)} [p_{\psi}(y > y^{\prime}|x)] \right] $$</p>
+                <p style="margin-bottom: 20px;">where $p_{\psi}(y > y^{\prime}|x) := \mathbb{P}[\mathcal{C}_{\psi}(x, y, y^{\prime}) = 1]$ is the preference probability from a visual judger $\mathcal{C}_{\psi}$.</p>
+                
                 <ul>
-                    <li>Rather than optimizing unstable absolute scores, RVPO derives rewards from <strong>relative visual preference</strong> among multiple rendered candidates.</li>
-                    <li>We construct a <strong>tournament-based reward</strong> where generated candidates are compared pairwise using a visual judger, and scalar rewards are assigned based on their aggregate win counts within the group.</li>
-                    <li>This rank-based surrogate objective is optimized using Group Relative Policy Optimization (GRPO), yielding a more robust, stable, and human-aligned learning signal.</li>
+                    <li style="margin-bottom: 15px;"><strong>Tournament-based Reward:</strong> We sample $N$ candidates and perform pairwise comparisons. Each candidate $y_i$ is assigned a scalar reward based on its aggregate win count within the group:
+                    <br><br>$$ W_i = \sum_{j \neq i} \mathbb{1}[\mathcal{C}_{\psi}(x, y_i, y_j) = 1] $$
+                    </li>
+                    <li style="margin-bottom: 15px;"><strong>Policy Optimization with GRPO:</strong> We compute group-normalized advantages $A_i = \frac{r_i - \bar{r}}{\sigma_r}$ and update the policy using the clipped surrogate objective:
+                    <br><br>$$ \mathcal{J}(\theta) = \mathbb{E} \left[ \frac{1}{N} \sum_{i=1}^{N} \min\left(\rho_i A_i, \text{clip}(\rho_i, 1-\epsilon, 1+\epsilon)A_i\right) \right] $$
+                    </li>
                 </ul>
             </div>
         </div>
