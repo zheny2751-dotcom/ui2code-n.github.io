@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UI2Code^N: A Visual Language Model for Test-Time Scalable Interactive UI-to-Code Generation</title>
+    <title>UI2Code^N: UI-to-Code Generation as Interactive Visual Optimization</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
@@ -43,16 +43,14 @@
             color: #475569;
         }
 
-        /* 去掉作者名字链接下划线 + 设置颜色 */
         .authors a {
-            text-decoration: none !important;  /* 取消下划线 */
-            color: #2b6cb0;                    /* 保持蓝色 */
+            text-decoration: none !important;
+            color: #2b6cb0;
         }
 
-        /* 悬停时也不要出现下划线 */
         .authors a:hover {
             text-decoration: none !important;
-            color: #1a4f8b;                    /* 悬停时颜色稍深，可以保留/调整 */
+            color: #1a4f8b;
         }
 
         .authors {
@@ -110,7 +108,6 @@
             transform: translateY(-2px);
         }
 
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -120,9 +117,8 @@
         section {
             padding: 30px 20px;
             background: #ffffff;
-            border-bottom: none;   /* ✅ 去分割线 */
+            border-bottom: none;
         }
-
 
         section h2 {
             font-size: 2.8em;
@@ -373,7 +369,7 @@
 
         .intro-block {
             max-width: 1100px;
-            margin: 10px auto 20px;  /* ✅ 比原来更贴合后面的内容 */
+            margin: 10px auto 20px;
             font-size: 1.05em;
             color: #444;
             line-height: 1.75;
@@ -382,15 +378,13 @@
         }
 
         .intro-block p {
-            margin-bottom: 10px;     /* ✅ 降低段落之间的空隙 */
+            margin-bottom: 10px;
         }
 
         .intro-block ul {
             margin: 5px 0 10px;
             padding-left: 20px;
         }
-
-
 
         .task-display {
             padding: 30px;
@@ -458,9 +452,8 @@
             margin-top: 4px;
         }
 
-        /* ✅ 放大 Agentic Framework 里的图片 */
         .framework .figure img {
-            max-width: 100%;   /* 你可以改成 85%、100% 都可以 */
+            max-width: 100%;
             margin: 0 auto;
             display: block;
         }
@@ -478,33 +471,29 @@
         }
 
         .function-figure img {
-            width: 98%;          /* 让图更宽一些 */
-            max-width: 1100px;   /* 防止超出页面 */
+            width: 98%;
+            max-width: 1100px;
             display: block;
             margin: 0 auto;
-            border-radius: 10px; /* 如果想要圆角可以保留 */
+            border-radius: 10px;
         }
 
-        /* ✅ 设置 Demo 内容整体居中但内部左对齐 */
         .task-examples .container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        /* ✅ 每个 demo 块整体左对齐 */
         .demo-section {
             text-align: left;
             margin-top: 20px;
         }
 
-        /* ✅ 标题风格统一 */
         .demo-section h3 {
             font-size: 1.6rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
 
-        /* ✅ 文字段落样式 */
         .demo-section p {
             font-size: 1.1rem;
             color: #444;
@@ -512,15 +501,13 @@
             margin-bottom: 15px;
         }
 
-        /* ✅ 图片与标题文字左对齐 */
         .demo-img {
             display: block;
             max-width: 100%;
-            width: 90%;          /* 可调，比如 80% / 900px */
+            width: 90%;
             border-radius: 8px;
             margin-top: 10px;
         }
-
 
         .chart-container {
             display: grid;
@@ -568,39 +555,32 @@
             font-size: 0.9em;
         }
 
-        /* 整体 Section 间距变小 */
         .citation {
-            margin-top: 20px;      /* 缩小整体上边距 */
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
-        /* 标题下间距缩小 */
         .citation h2 {
             margin-bottom: 0px;
         }
 
-        /* 代码容器样式 */
         .citation-box {
             background-color: #f7f7f7;
             border: 1px solid #ddd;
             border-radius: 0px;
-            padding: 15px 20px;          /* 上下左右都缩小 */
-            width: 95%;                  /* 变宽一点 */
-            margin: 0 auto;              /* 居中 */
+            padding: 15px 20px;
+            width: 95%;
+            margin: 0 auto;
             font-family: "Courier New", monospace;
             font-size: 15px;
-            
-            /* 横向滚动支持 */
             overflow-x: auto;
             white-space: pre;
         }
 
-        /* 去掉多余上下空白：pre 默认 margin 需要清除 */
         .citation-box pre {
             margin: 0;
         }
 
-        /* 优化滚动条（可选） */
         .citation-box::-webkit-scrollbar {
             height: 6px;
         }
@@ -612,42 +592,36 @@
             background: #eee;
         }
 
-        /* Footer 白色背景 + 居中显示 */
         footer {
-            background-color: #ffffff;      /* 白色背景 */
-            color: #333333;                 /* 深色文字 */
-            padding: 40px 0 30px 0;         /* 上下间距优化 */
-            text-align: center;             /* 所有文字居中 */
+            background-color: #ffffff;
+            color: #333333;
+            padding: 40px 0 30px 0;
+            text-align: center;
         }
 
-        /* 让内部内容宽度固定并居中 */
         footer .footer-content {
-            max-width: 1000px;               /* 控制内容宽度，不让太分散 */
-            margin: 0 auto;                 /* 居中 */
-            padding: 0 20px;                /* 两边加点留白 */
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* 作者名字 */
         footer .author-name {
             font-weight: 600;
             color: #2b6cb0;
             margin-bottom: 10px;
         }
 
-        /* 学校文字 */
         footer .author-affiliation {
             color: #555;
             margin-bottom: 12px;
         }
 
-        /* 版权文字 */
         footer .license-text,
         footer .footer-bottom {
             color: #666;
             margin-top: 10px;
         }
 
-        /* 分割线（可选） */
         footer hr {
             width: 60%;
             margin: 20px auto;
@@ -667,16 +641,13 @@
             text-align: center;
         }
 
-
-        /* Footer Authors 横向排列 */
         .footer-authors {
             display: flex;
             justify-content: center;
-            gap: 120px;            /* 横向间距（可保持不变） */
-            margin-top: 40px;      /* ✅ 与上面内容的距离 */
-            margin-bottom: 40px;   /* ✅ 与下面内容的距离 */
+            gap: 120px;
+            margin-top: 40px;
+            margin-bottom: 40px;
         }
-
 
         .footer-authors .author {
             text-align: center;
@@ -693,21 +664,17 @@
             color: #666;
         }
 
-
-        /* “回到顶部”按钮反色适配：白底 → 深色按钮更明显 */
         #back-to-top {
-            background-color: #333;      /* 深色 */
-            color: #fff;                 /* 白色箭头 */
+            background-color: #333;
+            color: #fff;
         }
 
-
-        /* Narrow experiment section for better readability */
         #experiments .container {
-            max-width: 1100px;   /* 也可以改成 900 或 1000 */
+            max-width: 1100px;
             margin: 0 auto;
         }
         #experiments table {
-            font-size: 0.92em;   /* 表格轻微缩小，避免拥挤 */
+            font-size: 0.92em;
         }
 
         .scroll-top {
@@ -749,15 +716,14 @@
         }
 
         .intro-figure img.intro-img {
-            max-width: 75%;   /* 你可以改成 60%、65%，控制宽度 */
+            max-width: 75%;
             height: auto;
             display: inline-block;
         }
 
-
         .table-latex {
-            width: 100%;           /* 宽度占满容器 */
-            max-width: 100%;       /* 防止被限制 */
+            width: 100%;
+            max-width: 100%;
             border-collapse: collapse;
             margin: 0 auto;
             font-family: "Times New Roman", serif;
@@ -811,13 +777,13 @@
         }
 
         .title-text {
-            display: block;          /* ✅ 强制独占一行 */
+            display: block;
             font-size: 18px;
             font-weight: 600;
         }
 
         .live-link {
-            display: block;          /* ✅ 显示在下一行 */
+            display: block;
             margin-top: 6px;
             font-size: 18px;
             color: #1a73e8;
@@ -827,7 +793,6 @@
         .live-link:hover {
             text-decoration: underline;
         }
-
 
         .abc-flow {
             display: flex;
@@ -868,7 +833,6 @@
             font-weight: bold;
             color: #555;
         }
-
 
         .intro-content {
             max-width: 1100px;
@@ -916,14 +880,14 @@
         }
 
         .code-block {
-            flex: 1;  /* 让代码块占满可用空间 */
+            flex: 1;
             background: #1e1e1e;
             border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            min-height: 700px;  /* 添加这个！让黑色背景有最小高度 */
+            min-height: 700px;
         }
 
         .code-block-2 {
@@ -934,21 +898,21 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            height: 150px;  /* 固定在750px左右 */
+            height: 150px;
         }
 
         .code-container {
-            flex: 1;  /* 让容器填满父元素 */
+            flex: 1;
             overflow-y: auto;
-            background: #1e1e1e;  /* 确保背景是黑色 */
+            background: #1e1e1e;
             border-radius: 8px;
         }
 
         .code-container pre {
             margin: 0 !important;
             padding: 20px;
-            height: 100%;  /* 让pre标签填满容器 */
-            background: #1e1e1e !important;  /* 强制黑色背景 */
+            height: 100%;
+            background: #1e1e1e !important;
         }
 
         .code-container code {
@@ -956,15 +920,14 @@
             font-size: 14px;
             line-height: 1.6;
             color: #d4d4d4;
-            display: block;  /* 让code标签占满空间 */
-            min-height: 100%;  /* 确保填满 */
+            display: block;
+            min-height: 100%;
         }
 
-        
         .abc-img-demo {
             width: 90%;
-            height: 80%;  /* 改为auto，让图片按原始比例显示 */
-            max-height: none;  /* 移除最大高度限制 */
+            height: 80%;
+            max-height: none;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             object-fit: contain;
@@ -973,44 +936,39 @@
 
         .abc-img-demo-2 {
             width: 105%;
-            height: auto;  /* 改为auto，让图片按原始比例显示 */
-            max-height: none;  /* 移除最大高度限制 */
+            height: auto;
+            max-height: none;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             object-fit: contain;
             background: white;
         }
 
-        /* 列表整体右缩进 */
         .training-pipeline {
-            padding-left: 3.2rem;   /* 可调，1.5rem 也行 */
+            padding-left: 3.2rem;
             margin-top: 0.5rem;
         }
 
-        /* 每一行稍微留点间距，看起来更舒服 */
         .training-pipeline li {
             margin-bottom: 0.4rem;
         }
 
-        /* Stage 前缀仍然红色 */
         .training-pipeline strong {
             color: #d32f2f;
             font-weight: 600;
         }
 
         .highlight-red {
-            color: #d32f2f;      /* 柔和但醒目的红色 */
-            font-weight: 600;    /* 比正常字稍微加粗一点 */
+            color: #d32f2f;
+            font-weight: 600;
         }
-
-
     </style>
 </head>
 <body>
     <!-- Header -->
     <div class="header">
         <div class="container">
-            <h1>UI2Code^N: A Visual Language Model for Test-Time Scalable Interactive UI-to-Code Generation</h1>
+            <h1>UI2Code<sup>N</sup>: UI-to-Code Generation as Interactive Visual Optimization</h1>
             <div class="authors">
                 <span><strong><a href="https://zyang-16.github.io/zhenyang.github.io/" target="_blank" >Zhen Yang<sup>1*</sup></a></strong></span>
                 <span><strong><a href="https://wenyihong.github.io/" target="_blank" >Wenyi Hong<sup>1*</sup></a></strong></span>
@@ -1028,6 +986,7 @@
             <div class="footnotes">
                 <p><sup>*</sup> Equal contribution.</p>
                 <p><sup>†</sup> Corresponding author: jietang@mail.tsinghua.edu.cn</p>
+                <p>Accepted to ICML 2026.</p>
             </div>
             <div class="buttons">
                 <a href="https://arxiv.org/abs/2511.08195" target="_blank" class="btn">📄 arXiv</a>
@@ -1040,7 +999,7 @@
     </div>
 
     <div class="intro-block">
-        <p><strong>UI2Code^N</strong> is a visual language foundation model trained through staged pretraining, fine-tuning, and reinforcement learning to achieve foundational improvements in multimodal coding, which unifies three key capabilities:  <a href="#demo-case-1" style="text-decoration:none; color:#4a90e2; font-weight:bold;">
+        <p><strong>UI2Code<sup>N</sup></strong> reformulates UI-to-code as an interactive visual optimization problem. By embedding code generation in a closed-loop process of execution, visual inspection, and iterative refinement driven by rendered visual feedback, it more accurately reflects real-world UI development workflows. It unifies three key capabilities:  <a href="#demo-case-1" style="text-decoration:none; color:#4a90e2; font-weight:bold;">
     UI-to-code generation
 </a>, 
 <a href="#demo-case-2" style="text-decoration:none; color:#4a90e2; font-weight:bold;">
@@ -1048,12 +1007,12 @@
 </a>, and 
 <a href="#demo-case-3" style="text-decoration:none; color:#4a90e2; font-weight:bold;">
     UI polishing
-</a>. </p></p>
+</a>. </p>
 
         <ul>
-            <li><strong>Interactive UI-to-Code Paradigm</strong> – We redefine UI-to-code generation as <strong>iterative reasoning with visual feedback</strong>, enabling flexible code generation, editing, and test-time scaling (e.g., +12% improvement with four rounds of polishing).</li>
-            <li><strong>First open-source Unified UI2Code Model</strong> – UI2Code<sup>N</sup> is the first open-source VLM to jointly support <strong>UI-to-code, UI editing, and UI polishing</strong>, achieving state-of-the-art results on <em>Design2Code</em>, <em>Flame-React-Eval</em>, and <em>Web2Code</em>, outperforming Gemini-2.5-Pro and Claude-4-Sonnet.</li>
-            <li><strong>Full Training Recipe for Coding VLM</strong> – We are the first to release a complete <strong>three-stage training pipeline</strong>—pretraining, supervised fine-tuning, and reinforcement learning with a novel reward design—balancing data realism with code generation quality.</li>
+            <li><strong>Interactive Visual Optimization</strong> – We reformulate UI-to-code from a single-pass generation into an iterative reasoning process with visual feedback.</li>
+            <li><strong>Relative Visual Policy Optimization (RVPO)</strong> – To address the non-differentiability of visual objectives and the noise of absolute visual evaluators, we propose a preference-based reinforcement learning method that optimizes relative visual rankings among rendered candidates under execution feedback.</li>
+            <li><strong>State-of-the-Art Performance</strong> – UI2Code<sup>N</sup> achieves state-of-the-art performance on UI drafting, UI polishing, and UI editing benchmarks, even outperforming larger models, with performance consistently improving through iterative visual optimization.</li>
         </ul>
 
     </div>
@@ -1062,26 +1021,17 @@
         <img src="assets/fig1.png" alt="UI2Code^N" class="intro-img">
     </div>
 
-
     <!-- Abstract -->
     <section class="abstract">
         <div class="container">
             <h2>Abstract</h2>
             <div class="abstract-content">
                 <p>
-                    User interface (UI) programming is a core yet highly complex part of modern software development. 
-                    Recent advances in visual language models (VLMs) highlight the potential of automatic UI coding, but current approaches face <span class="highlight-red">two key limitations</span>:
-                    multimodal coding capabilities remain underdeveloped, and single-turn paradigms make little use of iterative visual feedback. 
-                    We address these challenges with an interactive UI-to-code paradigm that better reflects real-world workflows and raises the upper bound of achievable performance.
-                    Under this paradigm, we present <strong>UI2Code<sup>N</sup></strong>, a visual language foundation model trained through staged pretraining, fine-tuning, and reinforcement learning to achieve foundational improvements in multimodal coding. 
-                    The model unifies three key capabilities: <strong>UI-to-code generation</strong>, <strong>UI editing</strong>, and <strong>UI polishing</strong>. 
-                    We further explore test-time scaling for interactive generation, enabling systematic use of multi-turn feedback.
-                    Experiments on UI-to-code and UI polishing benchmarks show that UI2Code<sup>N</sup> establishes a new state of the art among open-source models and achieves performance comparable to leading closed-source models such as Claude-4-Sonnet and GPT-5.
+                    UI-to-code aims to translate UI screenshots into executable front-end code. Despite progress with vision-language models (VLMs), most existing methods formulate UI-to-code as a single-pass generation, which mismatches real-world UI development that is inherently iterative and feedback-driven. We reformulate UI-to-code as an <strong>interactive visual optimization problem</strong>, where code generation is embedded in a closed-loop process of execution, visual inspection, and iterative refinement driven by rendered visual feedback. To address the non-differentiability of visual objectives and the noise of absolute visual evaluators, we propose <strong>Relative Visual Policy Optimization (RVPO)</strong>, a preference-based reinforcement learning method that optimizes relative visual rankings among rendered candidates under execution feedback. We instantiate this paradigm in UI2Code<sup>N</sup>, an open-source 9B model trained via continual pre-training, supervised fine-tuning, and reinforcement learning. Experiments demonstrate state-of-the-art performance on UI drafting, UI polishing, and UI editing benchmarks, even outperforming larger models, with performance consistently improving through iterative visual optimization.
                 </p>
             </div>
         </div>
     </section>
-
 
     <!-- Function Section -->
     <section class="function">
@@ -1097,7 +1047,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Framework Overview Section -->
     <section class="framework">
@@ -1120,7 +1069,7 @@
             <div class="training-pipeline">
                 <li><strong>Stage 1 — Continual Pre-training:</strong> Train on large-scale real webpage image–HTML pairs to build broad UI coding foundations.</li>
                 <li><strong>Stage 2 — Supervised Fine-tuning:</strong> Use curated clean datasets to enhance core capabilities: UI-to-code generation, UI editing, and UI polishing.</li>
-                <li><strong>Stage 3 — Reinforcement Learning:</strong> Adapt the model to complex real-world webpages using a verifier-based reward without paired ground-truth HTML.</li>
+                <li><strong>Stage 3 — Reinforcement Learning:</strong> Adapt the model to complex real-world webpages using RVPO (Relative Visual Policy Optimization) without paired ground-truth HTML.</li>
             </ul>
 
             <!-- Method Overview Figure -->
@@ -1649,23 +1598,21 @@
         </div>
     </section>
 
-
     <!-- Citation -->
 <section class="citation">
     <div class="container citation-center">
         <h2>Citation</h2>
         <div class="citation-box">
-<pre><code>@article{ui2coden2025,
-    title   = {UI2Code$^{N}$: A Visual Language Model for Test-Time Scalable Interactive UI-to-Code Generation},
-    author  = {Yang, Zhen and Hong, Wenyi and Xu, Mingde and Fan, Xinyue and Wang, Weihan and Gu, Xiaotao and Tang, Jie},
-    journal = {arXiv preprint arXiv:2511.08195},
-    year    = {2025}
+<pre><code>@inproceedings{ui2coden2026,
+    title     = {UI2Code$^{N}$: UI-to-Code Generation as Interactive Visual Optimization},
+    author    = {Yang, Zhen and Hong, Wenyi and Xu, Mingde and Fan, Xinyue and Wang, Weihan and Cheng, Jiele and Gu, Xiaotao and Tang, Jie},
+    booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+    year      = {2026}
 }
 </code></pre>
         </div>
     </div>
 </section>
-
 
     <!-- Footer -->
     <div class="footer">
@@ -1701,13 +1648,12 @@
                 <p>This website is licensed under a 
                     <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a>.
                 </p>
-                <p style="margin-top: 15px;">© 2025 Tsinghua University | 
+                <p style="margin-top: 15px;">© 2026 Tsinghua University | 
                     <a href="mailto:yang-zhen@mail.tsinghua.edu.cn">Contact Us</a>
                 </p>
             </div>
         </div>
     </div>
-
 
     <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
