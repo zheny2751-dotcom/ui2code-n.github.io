@@ -38,18 +38,6 @@
             border-bottom: none;
         }
 
-        .venue-badge {
-            display: inline-block;
-            background: #fef3c7;
-            color: #92400e;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.95em;
-            margin-bottom: 25px;
-            border: 1px solid #f59e0b;
-        }
-
         .header h1 {
             font-size: 2.6em;
             margin-bottom: 20px;
@@ -392,28 +380,21 @@
 
         .intro-block {
             max-width: 1100px;
-            margin: 20px auto 40px;
-            background: #f8fafc;
-            padding: 35px 40px;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            font-size: 1.1em;
-            color: #334155;
+            margin: 10px auto 20px;
+            font-size: 1.05em;
+            color: #444;
             line-height: 1.75;
             text-align: justify;
+            text-justify: inter-word;
         }
 
         .intro-block p {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .intro-block ul {
-            margin: 10px 0 10px;
-            padding-left: 25px;
-        }
-
-        .intro-block li {
-            margin-bottom: 10px;
+            margin: 5px 0 10px;
+            padding-left: 20px;
         }
 
         .method-block h3 {
@@ -1005,7 +986,6 @@
 <body>
     <div class="header">
         <div class="container">
-            <div class="venue-badge">Accepted to ICML 2026</div>
             <h1>UI2Code<sup>N</sup>: UI-to-Code Generation as Interactive Visual Optimization</h1>
             <div class="authors">
                 <span><strong><a href="https://zyang-16.github.io/zhenyang.github.io/" target="_blank" >Zhen Yang<sup>1*</sup></a></strong></span>
@@ -1024,6 +1004,7 @@
             <div class="footnotes">
                 <p><sup>*</sup> Equal contribution.</p>
                 <p><sup>†</sup> Corresponding author: jietang@mail.tsinghua.edu.cn</p>
+                <p>Accepted to ICML 2026.</p>
             </div>
             <div class="buttons">
                 <a href="https://arxiv.org/abs/2511.08195" target="_blank" class="btn">📄 arXiv</a>
@@ -1051,16 +1032,11 @@
             <li><strong>Relative Visual Policy Optimization (RVPO)</strong> – To address the non-differentiability of visual objectives and the noise of absolute visual evaluators, we propose a preference-based reinforcement learning method that optimizes relative visual rankings among rendered candidates under execution feedback.</li>
             <li><strong>State-of-the-Art Performance</strong> – UI2Code<sup>N</sup> achieves state-of-the-art performance on UI drafting, UI polishing, and UI editing benchmarks, even outperforming larger models, with performance consistently improving through iterative visual optimization.</li>
         </ul>
+
     </div>
 
-    <div class="figure intro-figure" style="max-width: 1100px; margin: 30px auto 50px;">
-        <img src="assets/fig1.png" alt="UI2Code^N Pipeline" class="intro-img" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-        <p class="caption" style="text-align: justify; font-size: 1.05em; line-height: 1.6; color: #475569; margin-top: 20px; padding: 0 15px;">
-            <strong>Figure 1. Interactive visual optimization in UI2Code<sup>N</sup>.</strong><br>
-            <strong>Left:</strong> The VLM first performs <strong>UI drafting</strong> to generate an initial code draft $C^{(0)}$, which is rendered into $R^{(0)}$. Using visual feedback from the rendering, the same VLM iteratively performs <strong>UI polishing</strong> to produce refined code $C^{(t)}$.<br>
-            <strong>Middle:</strong> <strong>Relative Visual Policy Optimization (RVPO)</strong>, the proposed reinforcement learning algorithm used to optimize both UI drafting and UI polishing.<br>
-            <strong>Right:</strong> Performance consistently improves with additional refinement steps, highlighting the iterative nature of real-world UI development, alongside quantitative results on UI-to-code generation and UI polishing benchmarks.
-        </p>
+    <div class="figure intro-figure">
+        <img src="assets/fig1.png" alt="UI2Code^N" class="intro-img">
     </div>
 
     <section class="abstract">
@@ -1085,11 +1061,11 @@
                 <img src="assets/fig2.png" alt="Method Overview">
             </div>
             
-            <div class="intro-block method-block" style="text-align: left; margin-top: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+            <div class="intro-block method-block" style="text-align: left;">
                 <p style="margin-top: 20px;">We formalize this process as a feedback-driven transformation:</p>
-                <p style="text-align: center; font-size: 1.2em;">$$ \mathcal{F}_{\theta}(I, C, R, E) \rightarrow C^{\prime} $$</p>
+                <p style="text-align: center;">$$ \mathcal{F}_{\theta}(I, C, R, E) \rightarrow C^{\prime} $$</p>
                 <p>where $I$ denotes the target UI image, $C$ the current code, $R = \text{Render}(C)$ the rendered output, $E$ optional modification instructions, and $C^{\prime}$ the updated code. The optimization objective is to find code $C^{*}$ that minimizes an implicit visual discrepancy $\mathcal{D}$:</p>
-                <p style="text-align: center; font-size: 1.2em;">$$ C^{*} = \arg\min_{C} \mathcal{D}(I, \text{Render}(C)) $$</p>
+                <p style="text-align: center;">$$ C^{*} = \arg\min_{C} \mathcal{D}(I, \text{Render}(C)) $$</p>
 
                 <h3>1. Instantiations of Visual Optimization</h3>
                 <p>This interactive paradigm naturally unifies three key capabilities by defining how feedback and constraints are introduced:</p>
@@ -1109,7 +1085,7 @@
                 <p>
                     The optimization objective is defined over rendered UI outcomes, which are non-differentiable. Furthermore, absolute visual scoring by VLM judges is often noisy and poorly calibrated. To address this, we optimize a rank-based surrogate objective measuring expected preference:
                 </p>
-                <p style="text-align: center; font-size: 1.2em;">$$ \mathcal{L}_{\text{rank}}(\theta) = \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} \left[ \mathbb{E}_{y^{\prime} \sim \pi_{\theta}(\cdot|x)} [p_{\psi}(y > y^{\prime}|x)] \right] $$</p>
+                <p style="text-align: center;">$$ \mathcal{L}_{\text{rank}}(\theta) = \mathbb{E}_{y \sim \pi_{\theta}(\cdot|x)} \left[ \mathbb{E}_{y^{\prime} \sim \pi_{\theta}(\cdot|x)} [p_{\psi}(y > y^{\prime}|x)] \right] $$</p>
                 <p style="margin-bottom: 20px;">where $p_{\psi}(y > y^{\prime}|x) := \mathbb{P}[\mathcal{C}_{\psi}(x, y, y^{\prime}) = 1]$ is the preference probability from a visual judger $\mathcal{C}_{\psi}$.</p>
                 
                 <ul>
