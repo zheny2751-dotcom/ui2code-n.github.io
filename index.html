@@ -1657,30 +1657,16 @@
                 <img src="assets/fig4.png" alt="The impact of reward design" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
             </div>
 
-            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 1.8em; color: #1a202c;">Human Evaluation and Judge Validation</h3>
+           <h3 style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 1.8em; color: #1a202c;">Human Evaluation and Judge Validation</h3>
             <p class="abstract-content">
                 To validate the reliability of VLM-based evaluation, we conduct comprehensive human studies on the <strong>Design2Code-HARD</strong> benchmark. Two independent annotators evaluated outputs against closed- and open-source SOTA baselines. Across all comparisons, UI2Code<sup>N</sup> consistently outperforms strong open-source models and remains highly competitive with leading closed-source systems, achieving a 72.5% Win+Tie rate against GPT-5.
             </p>
-            <div class="comparison-table" style="display:flex; justify-content:center; margin:20px auto;">
-                <div style="overflow-x: auto; width:100%;">
-                    <table class="table-latex" style="max-width:900px; margin:auto;">
-                        <thead>
-                            <tr>
-                                <th>Comparison</th>
-                                <th>Win</th>
-                                <th>Tie</th>
-                                <th>Lose</th>
-                                <th>Win+Tie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Ours vs. GPT-5</td><td>56.3%</td><td>16.3%</td><td>27.5%</td><td><strong>72.5%</strong></td></tr>
-                            <tr><td>Ours vs. Gemini-2.5-Pro</td><td>52.5%</td><td>12.5%</td><td>35.0%</td><td><strong>65.0%</strong></td></tr>
-                            <tr><td>Ours vs. Claude-4-Sonnet</td><td>63.8%</td><td>16.3%</td><td>20.0%</td><td><strong>80.0%</strong></td></tr>
-                            <tr><td>Ours vs. Qwen2.5-VL-72B</td><td>96.3%</td><td>2.5%</td><td>1.3%</td><td><strong>98.8%</strong></td></tr>
-                        </tbody>
-                    </table>
-                </div>
+            
+            <div class="figure" style="max-width: 900px; margin: 30px auto;">
+                <img src="assets/fig5.jpg" alt="Human evaluation on Design2Code-HARD" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <p class="caption" style="text-align: justify; font-size: 1.05em; line-height: 1.6; color: #475569; margin-top: 15px; padding: 0 15px;">
+                    <strong>Figure 5. Human evaluation on Design2Code-HARD.</strong> Our model consistently outperforms strong open-source models and is competitive with leading closed-source systems.
+                </p>
             </div>
 
         </div>
