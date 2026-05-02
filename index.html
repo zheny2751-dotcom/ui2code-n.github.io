@@ -386,6 +386,14 @@
             padding-left: 20px;
         }
 
+        .method-block h3 {
+            color: #1a202c;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
         .task-display {
             padding: 30px;
             background: white;
@@ -965,7 +973,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <div class="container">
             <h1>UI2Code<sup>N</sup>: UI-to-Code Generation as Interactive Visual Optimization</h1>
@@ -1021,7 +1028,6 @@
         <img src="assets/fig1.png" alt="UI2Code^N" class="intro-img">
     </div>
 
-    <!-- Abstract -->
     <section class="abstract">
         <div class="container">
             <h2>Abstract</h2>
@@ -1033,22 +1039,39 @@
         </div>
     </section>
 
-    <!-- Function Section -->
     <section class="function">
         <div class="container">
             <h2>Method Overview</h2>
             <p class="abstract-content">
-                UI2Code<sup>N</sup> follows an interactive UI-to-code paradigm that progressively generates, edits and refines UI code with visual feedback. 
+                We formulate UI-to-code as an <strong>interactive visual optimization</strong> problem. Unlike one-shot generation, our paradigm embeds code generation in a closed-loop process of execution, visual inspection, and iterative refinement driven by rendered visual feedback.
             </p>
 
-            <!-- 功能图 -->
             <div class="figure function-figure">
                 <img src="assets/fig2.png" alt="Method Overview">
+            </div>
+            
+            <div class="intro-block method-block" style="text-align: left;">
+                <h3>1. Instantiations of Visual Optimization</h3>
+                <p>This interactive paradigm naturally unifies three key capabilities by defining how feedback and constraints are introduced:</p>
+                <ul>
+                    <li><strong>UI Drafting:</strong> Initializes the optimization process by producing a first-pass code approximation from the target UI screenshot.</li>
+                    <li><strong>UI Polishing (Visual Refinement):</strong> Iteratively improves code quality by explicitly comparing the rendered execution feedback against the target UI. This refinement loop progressively reduces visual discrepancies and enables <strong>test-time scaling</strong>.</li>
+                    <li><strong>UI Editing:</strong> Acts as a conditional variant of refinement where localized code updates are guided by explicit natural language modification instructions along with the visual context.</li>
+                </ul>
+
+                <h3>2. Relative Visual Policy Optimization (RVPO)</h3>
+                <p>
+                    The optimization objective is defined over rendered UI outcomes, which are non-differentiable. Furthermore, absolute visual scoring by VLM judges is often noisy and poorly calibrated. To address this, we propose <strong>Relative Visual Policy Optimization (RVPO)</strong>.
+                </p>
+                <ul>
+                    <li>Rather than optimizing unstable absolute scores, RVPO derives rewards from <strong>relative visual preference</strong> among multiple rendered candidates.</li>
+                    <li>We construct a <strong>tournament-based reward</strong> where generated candidates are compared pairwise using a visual judger, and scalar rewards are assigned based on their aggregate win counts within the group.</li>
+                    <li>This rank-based surrogate objective is optimized using Group Relative Policy Optimization (GRPO), yielding a more robust, stable, and human-aligned learning signal.</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Framework Overview Section -->
     <section class="framework">
         <div class="container">
             <h2>Training Recipe</h2>
@@ -1072,7 +1095,6 @@
                 <li><strong>Stage 3 — Reinforcement Learning:</strong> Adapt the model to complex real-world webpages using RVPO (Relative Visual Policy Optimization) without paired ground-truth HTML.</li>
             </ul>
 
-            <!-- Method Overview Figure -->
             <div class="figure" style="max-width:110%; text-align:center;">
                 <img src="assets/fig3.png" alt="Three-Stage Training Pipeline" style="width:110%; display:inline-block;">
             </div>
@@ -1101,19 +1123,15 @@
         </div>
     </section>
 
-    <!-- Task Examples / Demo Cases -->
     <section class="task-examples">
         <div class="container">
             <h2>Demo Cases</h2>
 
-            <!-- Demo 1: UI-to-Code Generation -->
             <div class="demo-section">
-                <!-- <h3>1. UI-to-Code Generation</h3> -->
                 <h3 id="demo-case-1">1. UI-to-Code Generation Demo</h3>
                 <p>Generate clean, executable HTML/CSS/JavaScript code directly from UI screenshots with high fidelity.</p>
 
                 <div class="abc-flow">
-                    <!-- A: Reference Screenshot -->
                     <div class="abc-block">
                         <div class="abc-title">
                             <span class="title-text">Reference Screenshot</span>
@@ -1124,7 +1142,6 @@
 
                     <div class="abc-arrow">→</div>
 
-                    <!-- B: Generated HTML Code -->
                     <div class="abc-block">
                         <div class="abc-title">
                             <span class="title-text">Generated HTML Code</span>
@@ -1209,7 +1226,6 @@
 
                     <div class="abc-arrow">→</div>
 
-                    <!-- C: Rendered Result -->
                     <div class="abc-block">
                         <div class="abc-title">
                             <span class="title-text">Rendered Result</span>
@@ -1220,14 +1236,11 @@
                 </div>
             </div>
 
-            <!-- Demo 2: UI Editing -->
             <div class="demo-section">
-                <!-- <h3>2. UI Editing</h3> -->
                 <h3 id="demo-case-2">2. UI Editing Demo</h3>
                 <p>Modify existing UI code based on natural language instructions and visual context.</p>
 
                 <div class="abc-flow">
-                    <!-- A: Reference Screenshot -->
                     <div class="abc-block">
                         
                         <div class="abc-title">
@@ -1235,7 +1248,6 @@
                         </div>
                         <img src="assets/demo2_reference.png" alt="Reference UI" class="abc-img-demo" 
                             onerror="this.src='https://via.placeholder.com/400x500/667eea/ffffff?text=Reference+Screenshot'">
-                        <!-- Prompt Box -->
                         <div class="prompt-box">
                             <div class="prompt-label">💬 Prompt:</div>
                             <div class="prompt-text">"change the background color of the original UI to purple."</div>
@@ -1244,7 +1256,6 @@
 
                     <div class="abc-arrow">→</div>
 
-                    <!-- B: Generated HTML Code -->
                     <div class="abc-block">
                         <div class="abc-title">
                             <span class="title-text">Generated HTML Code</span>
@@ -1329,7 +1340,6 @@
 
                     <div class="abc-arrow">→</div>
 
-                    <!-- C: Rendered Result -->
                     <div class="abc-block">
                         <div class="abc-title">
                             <span class="title-text">Rendered Result</span>
@@ -1341,15 +1351,11 @@
             </div>
 
 
-            <!-- Demo 3: UI Polishing -->
-<div class="demo-section">
-    <!-- <h3>3. UI Polishing</h3> -->
+            <div class="demo-section">
     <h3 id="demo-case-3">3. UI Polishing Demo</h3>
     <p>Iteratively refine UI layout, spacing, typography, and aesthetics to match design style.</p>
 
-    <!-- 第一行：初始生成 -->
     <div class="abc-flow">
-        <!-- A: Reference Screenshot -->
         <div class="abc-block">
             <div class="abc-title">
                 <span class="title-text">Reference Screenshot</span>
@@ -1360,7 +1366,6 @@
 
         <div class="abc-arrow">→</div>
 
-        <!-- B: First Generated HTML Code -->
         <div class="abc-block">
             <div class="abc-title">
                 <span class="title-text">First Generated HTML Code</span>
@@ -1407,7 +1412,6 @@
 
         <div class="abc-arrow">→</div>
 
-        <!-- C: First Rendered Result -->
         <div class="abc-block">
             <div class="abc-title">
                 <span class="title-text">First Rendered Result</span>
@@ -1417,15 +1421,12 @@
         </div>
     </div>
 
-    <!-- 分隔线 -->
     <div style="margin: 40px 0; text-align: center; color: #666;">
         <span style="font-size: 24px;">⬇️</span>
         <p style="margin-top: 10px; font-weight: bold;">Iterative Polishing</p>
     </div>
 
-    <!-- 第二行：优化后 -->
     <div class="abc-flow">
-        <!-- Prompt Box -->
         <div class="abc-block">
             <div class="prompt-box">
                 <div class="prompt-label">💬 Polishing Prompt:</div>
@@ -1435,7 +1436,6 @@
 
         <div class="abc-arrow">→</div>
 
-        <!-- B: Polished HTML Code -->
         <div class="abc-block">
             <div class="abc-title">
                 <span class="title-text">Polished HTML Code</span>
@@ -1495,7 +1495,6 @@
 
         <div class="abc-arrow">→</div>
 
-        <!-- C: Polished Rendered Result -->
         <div class="abc-block">
             <div class="abc-title">
                 <span class="title-text">Polished Result</span>
@@ -1527,7 +1526,6 @@
                 Our RL-tuned version UI2Code<sup>N</sup>-9B-RL achieves the best overall open-source performance and even surpasses some commercial models.
             </p>
 
-            <!-- Table image or rendered table -->
             <div class="comparison-table" style="display:flex; justify-content:center; margin:20px auto;">
                 <div style="overflow-x: auto; width:120%;">
                     <table class="table-latex" style="min-width:1200px; margin:auto;">
@@ -1547,7 +1545,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Open-source -->
                         <tr>
                             <td colspan="7" style="text-align:center; font-weight:bold; padding-top:10px;">Open-source VLM</td>
                         </tr>
@@ -1561,7 +1558,6 @@
                         <tr><td>Kimi-VL-A3B-Thinking</td><td>38.8</td><td>36.3</td><td>46.6</td><td>27.0</td><td>14.0</td><td>27.0</td></tr>
                         <tr><td>GLM-4.1V-9B-Thinking</td><td>64.7</td><td>72.5</td><td>71.3</td><td>53.0</td><td>42.0</td><td>46.0</td></tr>
                         
-                        <!-- Closed-source -->
                         <tr>
                             <td colspan="7" style="text-align:center; font-weight:bold; padding-top:10px;">Closed-source VLM</td>
                         </tr>
@@ -1575,7 +1571,6 @@
                         <tr><td>Doubao-1.5-thinking-vision</td><td>53.7</td><td>78.8</td><td>55.6</td><td>38.3</td><td>51.0</td><td>61.0</td></tr>
                         <tr><td>Doubao-1.6-thinking-250715</td><td>62.4</td><td>67.7</td><td>67.2</td><td>43.4</td><td>61.0</td><td>67.0</td></tr>
 
-                        <!-- UI2CodeN -->
                         <tr>
                             <td colspan="7" style="text-align:center; font-weight:bold; padding-top:10px;">UI2Code<sup>N</sup></td>
                         </tr>
@@ -1598,8 +1593,7 @@
         </div>
     </section>
 
-    <!-- Citation -->
-<section class="citation">
+    <section class="citation">
     <div class="container citation-center">
         <h2>Citation</h2>
         <div class="citation-box">
@@ -1614,7 +1608,6 @@
     </div>
 </section>
 
-    <!-- Footer -->
     <div class="footer">
         <div class="footer-content">
             <h2>Core Authors & Corresponding Authors</h2>
@@ -1655,7 +1648,6 @@
         </div>
     </div>
 
-    <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
         ↑
     </div>
