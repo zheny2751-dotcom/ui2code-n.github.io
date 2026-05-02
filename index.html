@@ -1617,6 +1617,74 @@
                     </tbody>
                 </table>
                 </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 1.8em; color: #1a202c;">Results with CLIP Scoring</h3>
+            <p class="abstract-content">
+                We additionally report CLIP-based evaluation results on the Design2Code benchmark. While strong vision-language models achieve comparable CLIP scores, indicating accurate reconstruction of coarse visual appearance, CLIP shows limited sensitivity to structural and layout-level discrepancies. UI2Code<sup>N</sup> improves block- and position-level metrics without a corresponding increase in CLIP score, indicating that CLIP-based evaluation alone is insufficient for assessing structural and functional correctness in UI coding tasks.
+            </p>
+            <div class="comparison-table" style="display:flex; justify-content:center; margin:20px auto;">
+                <div style="overflow-x: auto; width:100%;">
+                    <table class="table-latex" style="max-width:900px; margin:auto;">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Block</th>
+                                <th>Text</th>
+                                <th>Position</th>
+                                <th>Color</th>
+                                <th>CLIP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>GPT-5</td><td>89.1</td><td>94.2</td><td>86.4</td><td>78.0</td><td>81.6</td></tr>
+                            <tr><td>Gemini-2.5-Pro</td><td>89.1</td><td>93.5</td><td>85.5</td><td>71.4</td><td>80.9</td></tr>
+                            <tr><td>Claude-4-Sonnet</td><td>88.7</td><td>93.2</td><td>84.6</td><td>72.0</td><td>80.5</td></tr>
+                            <tr><td>Qwen2.5-VL-72B</td><td>86.6</td><td>91.6</td><td>76.8</td><td>67.8</td><td>77.8</td></tr>
+                            <tr style="color:gray;"><td>UI2Code<sup>N</sup>-SFT</td><td>86.8</td><td>91.5</td><td>81.7</td><td>69.7</td><td>79.0</td></tr>
+                            <tr><td><strong>UI2Code<sup>N</sup>-RL</strong></td><td><strong>88.7</strong></td><td><strong>93.1</strong></td><td><strong>83.8</strong></td><td><strong>72.6</strong></td><td><strong>80.5</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 1.8em; color: #1a202c;">The Impact of Reward Design</h3>
+            <p class="abstract-content">
+                To justify the effectiveness of <strong>Relative Visual Policy Optimization (RVPO)</strong>, we conduct an ablation study comparing an absolute (vanilla) reward that assigns independent scores against the full RVPO reward based on tournament-style aggregation. RVPO consistently outperforms both supervised fine-tuning (SFT) and simpler reinforcement learning baselines with a vanilla verifier on the UI polishing task. Optimizing relative visual preference among multiple candidates proves more effective than relying on absolute reward scores.
+            </p>
+            
+            <div class="figure" style="max-width: 900px; margin: 30px auto;">
+                <img src="assets/fig3.png" alt="The impact of reward design" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <p class="caption" style="text-align: justify; font-size: 1.05em; line-height: 1.6; color: #475569; margin-top: 15px; padding: 0 15px;">
+                    <strong>Figure 3. The impact of reward design.</strong> (a) RVPO consistently outperforms both SFT and RL with a vanilla verifier on UI polishing benchmarks. (b) For UI drafting, VLM-based rewards provide improvements over SFT, while CLIP-based rewards degrade performance, underscoring the sensitivity of UI drafting to reward design.
+                </p>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 60px; margin-bottom: 20px; font-size: 1.8em; color: #1a202c;">Human Evaluation and Judge Validation</h3>
+            <p class="abstract-content">
+                To validate the reliability of VLM-based evaluation, we conduct comprehensive human studies on the <strong>Design2Code-HARD</strong> benchmark. Two independent annotators evaluated outputs against closed- and open-source SOTA baselines. Across all comparisons, UI2Code<sup>N</sup> consistently outperforms strong open-source models and remains highly competitive with leading closed-source systems, achieving a 72.5% Win+Tie rate against GPT-5.
+            </p>
+            <div class="comparison-table" style="display:flex; justify-content:center; margin:20px auto;">
+                <div style="overflow-x: auto; width:100%;">
+                    <table class="table-latex" style="max-width:900px; margin:auto;">
+                        <thead>
+                            <tr>
+                                <th>Comparison</th>
+                                <th>Win</th>
+                                <th>Tie</th>
+                                <th>Lose</th>
+                                <th>Win+Tie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Ours vs. GPT-5</td><td>56.3%</td><td>16.3%</td><td>27.5%</td><td><strong>72.5%</strong></td></tr>
+                            <tr><td>Ours vs. Gemini-2.5-Pro</td><td>52.5%</td><td>12.5%</td><td>35.0%</td><td><strong>65.0%</strong></td></tr>
+                            <tr><td>Ours vs. Claude-4-Sonnet</td><td>63.8%</td><td>16.3%</td><td>20.0%</td><td><strong>80.0%</strong></td></tr>
+                            <tr><td>Ours vs. Qwen2.5-VL-72B</td><td>96.3%</td><td>2.5%</td><td>1.3%</td><td><strong>98.8%</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         </div>
     </section>
